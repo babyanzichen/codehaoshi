@@ -16,7 +16,7 @@ trait ArticleHelper
         if (strstr($data['attribute'], '2')) $attribute['is_hot'] = 'yes';
         if (strstr($data['attribute'], '3')) $attribute['only_owner_can_see'] = 'yes';
         if (strstr($data['attribute'], '4')) $attribute['is_draft'] = 'yes';
-        $attribute['published_at'] = isset($data['published_at']) ?: Carbon::now();
+        $attribute['published_at'] = isset($data['published_at']) ?$data['published_at']: Carbon::now();
         $attribute['weight'] = isset($data['weight']) ?: 50;
 
         return array_merge($data, $attribute);
